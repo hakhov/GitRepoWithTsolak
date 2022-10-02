@@ -17,11 +17,6 @@ for (int i = 0; i < count; i++)
     phoneBookNames.Add(Console.ReadLine().ToLower().TrimEnd());
 
 foreach (var item in phoneBookNames)
-{
-    if (phoneBook.ContainsKey(item))
-        Console.WriteLine(item + "=" + phoneBook[item]);
-    else
-        Console.WriteLine("Not found");
-}
+    Console.WriteLine(phoneBook.ContainsKey(item) ? item + "=" + phoneBook[item] : "Not found");
 
 
