@@ -1,4 +1,3 @@
-//link
 //https://www.hackerrank.com/challenges/30-inheritance/problem?isFullScreen=true
 
 string[] inputs = Console.ReadLine().Split();
