@@ -1,5 +1,3 @@
-﻿//https://www.hackerrank.com/challenges/30-inheritance/problem?isFullScreen=true
-
 string[] inputs = Console.ReadLine().Split();
 string firstName = inputs[0];
 string lastName = inputs[1];
@@ -68,4 +66,3 @@ class Student : Person
         else
             return "T";
     }
-}
