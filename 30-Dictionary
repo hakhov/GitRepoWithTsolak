@@ -1,0 +1,46 @@
+int count = int.Parse(Console.ReadLine());
+
+var phoneBook = GetPhoneNumbers(count);
+
+var names = GetNames(count);
+
+PrintFriend(phoneBook, names);
+
+
+static Dictionary<string, string> GetPhoneNumbers(int number)
+{
+  var phoneBook = new Dictionary<string, string>();
+
+  for (int i = 0; i < number; i++)
+  {
+    var txt = Console.ReadLine().TrimEnd().Split(' ').ToList();
+    phoneBook.Add(txt[0], txt[1]);
+  }
+
+  return phoneBook;
+}
+
+static List<string> GetNames(int number)
+{
+  var names = new List<string>();
+
+  for (int i = 0; i < number; i++)
+  {
+    names.Add(Console.ReadLine());
+  }
+  return names;
+}
+
+static void PrintFriend(Dictionary<string, string> phoneBook, List<string> names)
+{
+  foreach (var item in names)
+  {
+    if (phoneBook.ContainsKey(item))
+    {
+      phoneBook.TryGetValue(item, out string value);
+      Console.WriteLine($"{item}={value}");
+    }
+    else
+      Console.WriteLine("Not found");
+  }
+}
