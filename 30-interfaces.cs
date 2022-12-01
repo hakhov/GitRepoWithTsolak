@@ -14,13 +14,10 @@ public class Calculator : AdvancedArithmetic
 {
     public int divisorSum(int number)
     {
-        if (number == 0)
-            return 0;
+        if (number == 0 || number == 1) return number;
 
-        if (number == 1)
-            return 1;
+        int sum = number++;
 
-        int sum = 1 + number;
         for (int i = 2; i <= number / 2; i++)
         {
             if (number % i == 0)

@@ -8,9 +8,11 @@ inputs = Console.ReadLine().Split();
 int[] scores = new int[numScores];
 
 for (int i = 0; i < numScores; i++)
+{
     scores[i] = Convert.ToInt32(inputs[i]);
+}
 
-Student studentObj = new Student(firstName, lastName, id, scores);
+var studentObj = new Student(firstName, lastName, id, scores);
 studentObj.PrintPerson();
 Console.WriteLine($"Grade: {studentObj.Calculate()}");
 
@@ -63,6 +65,6 @@ class Student : Person
             return "P";
         if (55 > average && average >= 40)
             return "D";
-        else
-            return "T";
+
+        return "T";
     }

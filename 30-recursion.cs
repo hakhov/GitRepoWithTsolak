@@ -10,6 +10,7 @@ Console.WriteLine(factorial);
 static int GetFactorial(int number)
 {
     if (number >= 1)
-        return number*GetFactorial(number - 1);
-    return 1;
+        return 1;
+
+    return number * GetFactorial(number - 1);
 }
