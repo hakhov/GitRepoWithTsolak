@@ -55,15 +55,15 @@ class Student : Person
     {
         int average = testScores.Sum() / testScores.Length;
 
-        if (100 >= average && average >= 90)
+        if (average <= 100 && average >= 90)
             return "O";
-        if (90 > average && average >= 80)
+        if (average < 90 && average >= 80)
             return "E";
-        if (80 > average && average >= 70)
+        if (average < 80 && average >= 70)
             return "A";
-        if (70 > average && average >= 55)
+        if (average < 70 && average >= 55)
             return "P";
-        if (55 > average && average >= 40)
+        if (average < 55 && average >= 40)
             return "D";
 
         return "T";

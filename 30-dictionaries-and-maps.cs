@@ -20,7 +20,7 @@ for (int i = 0; i < count; i++)
 
 foreach (var item in phoneBookNames)
 {
-    Console.WriteLine(phoneBook.ContainsKey(item) ? item + "=" + phoneBook[item] : "Not found");
+    Console.WriteLine(phoneBook.TryGetValue(item, out var value) ? item + "=" + value : "Not found");
 }
 
 
