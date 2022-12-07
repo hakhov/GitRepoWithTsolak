@@ -2,10 +2,10 @@
 
 int count = int.Parse(Console.ReadLine());
 
-Dictionary<string, string> phoneBook = new Dictionary<string, string>();
+var phoneBook = new Dictionary<string, string>();
 
-List<string> phoneBookNames = new List<string>();
-List<string> input = new List<string>();
+var phoneBookNames = new List<string>();
+var input = new List<string>();
 
 for (int i = 0; i < count; i++)
 {
@@ -14,9 +14,13 @@ for (int i = 0; i < count; i++)
 }
 
 for (int i = 0; i < count; i++)
+{
     phoneBookNames.Add(Console.ReadLine().ToLower().TrimEnd());
+}
 
 foreach (var item in phoneBookNames)
-    Console.WriteLine(phoneBook.ContainsKey(item) ? item + "=" + phoneBook[item] : "Not found");
+{
+    Console.WriteLine(phoneBook.TryGetValue(item, out var value) ? item + "=" + value : "Not found");
+}
 
 

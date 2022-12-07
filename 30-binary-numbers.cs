@@ -1,8 +1,8 @@
 ﻿//https://www.hackerrank.com/challenges/30-binary-numbers/problem?isFullScreen=true
 
-string output = Convert.ToString(127, 2);
+string binaryString = Convert.ToString(127, 2);
 
-Console.WriteLine(GetMaxLength(output));
+Console.WriteLine(GetMaxLength(binaryString));
 
 static int GetMaxLength(string binaryString)
 { 
@@ -12,7 +12,9 @@ static int GetMaxLength(string binaryString)
     foreach (var item in binaryString)
     {
         if (item == '0')
+        {
             count = 0;
+        }
         else
         {
             count++;

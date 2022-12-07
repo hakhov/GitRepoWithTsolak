@@ -1,6 +1,3 @@
-//link
-//https://www.hackerrank.com/challenges/30-inheritance/problem?isFullScreen=true
-
 string[] inputs = Console.ReadLine().Split();
 string firstName = inputs[0];
 string lastName = inputs[1];
@@ -11,9 +8,11 @@ inputs = Console.ReadLine().Split();
 int[] scores = new int[numScores];
 
 for (int i = 0; i < numScores; i++)
+{
     scores[i] = Convert.ToInt32(inputs[i]);
+}
 
-Student studentObj = new Student(firstName, lastName, id, scores);
+var studentObj = new Student(firstName, lastName, id, scores);
 studentObj.PrintPerson();
 Console.WriteLine($"Grade: {studentObj.Calculate()}");
 
@@ -56,17 +55,13 @@ class Student : Person
     {
         int average = testScores.Sum() / testScores.Length;
 
-        if (100 >= average && average >= 90)
-            return "O";
-        if (90 > average && average >= 80)
-            return "E";
-        if (80 > average && average >= 70)
-            return "A";
-        if (70 > average && average >= 55)
-            return "P";
-        if (55 > average && average >= 40)
-            return "D";
-        else
-            return "T";
+        return average switch
+        {
+            <= 100 and >= 90 => "O",
+            < 90 and >= 80 => "E",
+            < 80 and >= 70 => "A",
+            < 70 and >= 55 => "P",
+            < 55 and >= 40 => "D",
+            _ => "t",
+        };
     }
-}
