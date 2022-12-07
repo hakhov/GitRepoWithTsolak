@@ -55,16 +55,13 @@ class Student : Person
     {
         int average = testScores.Sum() / testScores.Length;
 
-        if (average <= 100 && average >= 90)
-            return "O";
-        if (average < 90 && average >= 80)
-            return "E";
-        if (average < 80 && average >= 70)
-            return "A";
-        if (average < 70 && average >= 55)
-            return "P";
-        if (average < 55 && average >= 40)
-            return "D";
-
-        return "T";
+        return average switch
+        {
+            <= 100 and >= 90 => "O",
+            < 90 and >= 80 => "E",
+            < 80 and >= 70 => "A",
+            < 70 and >= 55 => "P",
+            < 55 and >= 40 => "D",
+            _ => "t",
+        };
     }
