@@ -7,7 +7,7 @@ while (T-- > 0)
     linkedList = InsertElement(linkedList, data);
 }
 
-linkedList = RemoveDuplicates(linkedList);
+RemoveDuplicates(ref linkedList);
 
 Display(linkedList);
 
@@ -39,7 +39,7 @@ static Node InsertElement(Node? linkedList, int data)
     return linkedList;
 }
 
-static Node? RemoveDuplicates(Node? linkedList)
+static Node? RemoveDuplicates(ref Node linkedList)
 {
     Node? tempObj = linkedList;
 
