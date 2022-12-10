@@ -3,15 +3,11 @@
 
 class MyBook : Book
 {
-    public string Title { get; set; }
-    public string Author { get; set; }
     public int Price { get; set; }
 
     public MyBook(string title, string author, int price)
     : base(title, author)
     {
-        Title = title;
-        Author = author;
         Price = price;
     }
 
@@ -21,4 +17,18 @@ class MyBook : Book
         Console.WriteLine($"Author: {Author}");
         Console.WriteLine($"Price: {Price}");
     }
+}
+
+abstract class Book
+{
+
+    protected string title;
+    protected string author;
+
+    public Book(String t, String a)
+    {
+        title = t;
+        author = a;
+    }
+    public abstract void display();
 }
