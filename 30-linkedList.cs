@@ -1,7 +1,7 @@
 ﻿Node? linkedList = null;
-int T = Int32.Parse(Console.ReadLine());
+int count = Int32.Parse(Console.ReadLine());
 
-while (T-- > 0)
+while (count-- > 0)
 {
     int data = Int32.Parse(Console.ReadLine());
     linkedList = InsertElement(linkedList, data);
@@ -23,73 +23,39 @@ static void Display(Node? linkedList)
 
 static Node InsertElement(Node? linkedList, int data)
 {
-    Node tempObj = new Node(data);
+    Node current = new Node(data);
 
     if (linkedList is null)
-        linkedList = tempObj;
+    {
+        linkedList = current;
+    }
     else if (linkedList.Next is null)
-        linkedList.Next = tempObj;
+    {
+        linkedList.Next = current;
+    }
     else
     {
         Node start = linkedList;
         while (start.Next is not null)
+        {
             start = start.Next;
-        start.Next = tempObj;
-    }
-    return linkedList;
-}
-
-Node? linkedList = null;
-int T = Int32.Parse(Console.ReadLine());
-
-while (T-- > 0)
-{
-    int data = Int32.Parse(Console.ReadLine());
-    linkedList = InsertElement(linkedList, data);
-}
-
-RemoveDuplicates(ref linkedList);
-
-Display(linkedList);
-
-static void Display(Node? linkedList)
-{
-    Node? start = linkedList;
-    while (start is not null)
-    {
-        Console.Write(start.Data + " ");
-        start = start.Next;
-    }
-}
-
-static Node InsertElement(Node? linkedList, int data)
-{
-    Node tempObj = new Node(data);
-
-    if (linkedList is null)
-        linkedList = tempObj;
-    else if (linkedList.Next is null)
-        linkedList.Next = tempObj;
-    else
-    {
-        Node start = linkedList;
-        while (start.Next is not null)
-            start = start.Next;
-        start.Next = tempObj;
+        }
+        start.Next = current;
     }
     return linkedList;
 }
 
 static Node? RemoveDuplicates(Node linkedList)
 {
-    var tempObj = linkedList;
-    while (tempObj != null && tempObj.Next != null)
+    var current = linkedList;
+    while (current is not null && current.Next is not null)
     {
-        while (tempObj.Next != null && tempObj.Data == tempObj.Next.Data)
+        while (current?.Data == current?.Next?.Data)
         {
-            tempObj.Next = tempObj.Next.Next;
+            current.Next = current?.Next?.Next;
         }
-        tempObj = tempObj.Next;
+        current = current?.Next;
+
     }
     return linkedList;
 }
