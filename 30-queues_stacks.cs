@@ -1,42 +1,35 @@
-string? txt = Console.ReadLine();
+string? text = Console.ReadLine();
 
-Solution obj = new Solution();
+PalidromeSoulation instancePalidromeSoulation = new PalidromeSoulation();
 
-foreach (char cr in txt)
+foreach (char symbol in text)
 {
-	obj.PushCharacter(cr);
-	obj.EnqueueCharacter(cr);
+    instancePalidromeSoulation.PushCharacter(symbol);
+    instancePalidromeSoulation.EnqueueCharacter(symbol);
 }
 
 bool isPalindrome = true;
 
-for (int i = 0; i < txt.Length / 2; i++)
+for (int i = 0; i < text.Length / 2; i++)
 {
-	if (obj.PopCharacter() != obj.DequeueCharacter())
-	{
-		isPalindrome = false;
+    if (instancePalidromeSoulation.PopCharacter() != instancePalidromeSoulation.DequeueCharacter())
+    {
+        isPalindrome = false;
 
-		break;
-	}
+        break;
+    }
 }
 
+Console.WriteLine(isPalindrome ? $"The word, {text}, is a palindrome."
+    : $"The word, {text}, is not a palindrome.");
 
-if (isPalindrome)
+class PalidromeSoulation
 {
-	Console.Write($"The word, {txt}, is a palindrome.");
-}
-else
-{
-	Console.Write($"The word, {txt}, is not a palindrome.");
-}
+    Queue<char> queue = new Queue<char>();
+    Stack<char> stack = new Stack<char>();
 
-class Solution
-{
-	Queue<char> queue = new Queue<char>();
-	Stack<char> stack = new Stack<char>();
-
-	public void PushCharacter(char cr) => stack.Push(cr);
-	public char PopCharacter() => stack.Pop();
-	public void EnqueueCharacter(char cr) => queue.Enqueue(cr);
-	public char DequeueCharacter() => queue.Dequeue();
+    public void PushCharacter(char symbol) => stack.Push(symbol);
+    public char PopCharacter() => stack.Pop();
+    public void EnqueueCharacter(char symbol) => queue.Enqueue(symbol);
+    public char DequeueCharacter() => queue.Dequeue();
 }
